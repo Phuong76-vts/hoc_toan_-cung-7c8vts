@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Toán 7 cùng 7C8</title>
+<meta name="author" content="Ngô Thị Phương – THCS Võ Thị Sáu – An Biên, Hải Phòng">
 <meta name="description" content="Góc tự học Toán 7 lớp 7C8 – THCS Võ Thị Sáu: bài giảng tương tác, trò chơi, đề luyện giữa kì, bản đồ năng lực.">
 <meta name="theme-color" content="#4b5bdc">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect x='2' y='2' width='36' height='36' rx='11' fill='%234b5bdc'/%3E%3Ctext x='20' y='28' font-size='20' font-weight='800' fill='white' text-anchor='middle' font-family='Arial'%3E7%3C/text%3E%3C/svg%3E">
@@ -141,6 +142,7 @@ footer{max-width:1080px;margin:auto;padding:10px 16px 30px;color:var(--muted);fo
 .gtkl{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}.gtkl .o{border-radius:14px;border:2px dashed #b9c0e8;padding:10px;min-height:70px;cursor:pointer;background:#f8f9ff}.gtkl .o b{display:block;color:var(--pri)}
 .gvt{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}.gvt th,.gvt td{border-bottom:1px solid var(--line);padding:8px;text-align:left}.gvt th{background:#f1f3fb}
 footer a{color:var(--pri);font-weight:700}
+.tacgia{max-width:1080px;margin:0 auto;padding:6px 16px 0;font-size:13px;color:var(--muted)}
 #confetti{position:fixed;inset:0;pointer-events:none;z-index:50}
 @media print{header,footer,.nhap,.noprint,#confetti{display:none!important} body{background:#fff} .card{box-shadow:none;border:0} .sol{display:block}}
 </style>
@@ -160,8 +162,9 @@ footer a{color:var(--pri);font-weight:700}
   <span class="xpchip" id="xp"></span>
   <button class="xpchip chedo" id="chedo" onclick="doiCheDo()"></button>
 </div></header>
+<div class="tacgia">👩‍🏫 Tác giả: <b>Ngô Thị Phương</b> – THCS Võ Thị Sáu – An Biên, Hải Phòng</div>
 <main id="app"></main>
-<footer class="noprint">
+<footer class="noprint"><span style="flex-basis:100%">© 2026 <b>Ngô Thị Phương</b> – THCS Võ Thị Sáu – An Biên, Hải Phòng · Học liệu số Toán 7 (Kết nối tri thức)</span>
   <span>Tiến độ lưu trên trình duyệt của máy này.</span>
   <button class="btn small ghost" id="btnXuat">💾 Sao lưu tiến độ</button>
   <label class="btn small ghost" style="display:inline-flex;align-items:center">📂 Nhập tiến độ<input type="file" id="fileNhap" accept=".json" hidden></label>
@@ -442,7 +445,7 @@ function trangChu(){
  const ring=(p,c)=>`<svg class="ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#e3e6f6" stroke-width="12"/><circle cx="50" cy="50" r="40" fill="none" stroke="${c}" stroke-width="12" stroke-linecap="round" stroke-dasharray="${2.513*p} 251.3" transform="rotate(-90 50 50)"/><text x="50" y="57" text-anchor="middle" font-size="20" font-weight="800" fill="#1d2340" font-family="Segoe UI,Arial">${p}%</text></svg>`;
  setTimeout(()=>{ganCamXuc(); ganGuiCo();},0);
  return `<div class="fade">
- <div class="card hero"><div><h1>Chào các em lớp 7C8! 👋</h1>${camXuc()}<p>Đây là góc tự học Toán 7 học kì I: xem lại bài, thử <b>mô phỏng</b>, làm câu hỏi <b>tự chấm</b>, rồi luyện <b>đề giữa kì</b>.</p>
+ <div class="card hero"><div><h1>Chào các em lớp 7C8! 👋</h1><div class="muted" style="margin-top:-2px">Góc tự học Toán 7 do <b>cô Ngô Thị Phương</b> xây dựng cho lớp mình.</div>${camXuc()}<p>Đây là góc tự học Toán 7 học kì I: xem lại bài, thử <b>mô phỏng</b>, làm câu hỏi <b>tự chấm</b>, rồi luyện <b>đề giữa kì</b>.</p>
  <p class="muted">Mẹo của Cú Toán: thấy sợ thì bật 😌 Nhẹ nhàng ở góc trên. Mỗi bài có phần Khởi động đoán thử, Thử thách 60 giây để săn huy hiệu. Học xong mỗi bài, làm hết câu luyện tập. Sai lần đầu, Cú Toán sẽ đoán em nhầm ở đâu để em thử lại; sai lần hai mới hiện lời giải.</p>
  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px"><a class="btn" href="#bai/${(Object.keys(BAI).find(k=>!TD.hoc[k])||1)}" style="text-decoration:none">▶ Học tiếp</a><a class="btn ghost" href="#de" style="text-decoration:none">📝 Làm đề luyện</a></div></div>
  <div style="display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap"><div style="display:flex;flex-direction:column;align-items:center;gap:6px">${cuLon(120)}<div class="speech">${giaiDoan()}</div></div><div>${ring(pct,"#4b5bdc")}<div class="muted" style="text-align:center">${xong}/${tong} bài đã học</div><div style="text-align:center;font-weight:700;margin-top:4px">${capDo(TD.xp||0).ten} · ${TD.xp||0} XP</div><div style="text-align:center" class="muted">🏅 ${Object.values(TD.best||{}).filter(v=>v>=8).length} huy hiệu</div>${best!==null?`<div style="text-align:center;font-weight:700;margin-top:4px">⭐ Điểm đề luyện cao nhất: ${soVN(best,2)}</div>`:""}</div></div></div>
